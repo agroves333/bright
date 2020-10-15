@@ -1,5 +1,7 @@
 import React, { PropsWithoutRef } from "react"
 import { useField } from "react-final-form"
+import { Box } from "rebass"
+import { Label, Input } from "@rebass/forms"
 
 export interface LabeledTextFieldProps extends PropsWithoutRef<JSX.IntrinsicElements["input"]> {
   /** Field name. */
@@ -21,35 +23,15 @@ export const LabeledTextField = React.forwardRef<HTMLInputElement, LabeledTextFi
     const normalizedError = Array.isArray(error) ? error.join(", ") : error || submitError
 
     return (
-      <div {...outerProps}>
-        <label>
-          {label}
-          <input {...input} disabled={submitting} {...props} ref={ref} />
-        </label>
-
+      <Box {...outerProps} py={1}>
+        <Label htmlFor={name}>{label}</Label>
+        <Input {...input} disabled={submitting} {...props} ref={ref} />
         {touched && normalizedError && (
-          <div role="alert" style={{ color: "red" }}>
+          <Box role="alert" style={{ color: "red" }}>
             {normalizedError}
-          </div>
+          </Box>
         )}
-
-        <style jsx>{`
-          label {
-            display: flex;
-            flex-direction: column;
-            align-items: start;
-            font-size: 1rem;
-          }
-          input {
-            font-size: 1rem;
-            padding: 0.25rem 0.5rem;
-            border-radius: 3px;
-            border: 1px solid purple;
-            appearance: none;
-            margin-top: 0.5rem;
-          }
-        `}</style>
-      </div>
+      </Box>
     )
   }
 )

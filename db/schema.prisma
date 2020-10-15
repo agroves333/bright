@@ -36,3 +36,12 @@ model Session {
   publicData         String?
   privateData        String?
 }
+
+model Entry {
+  id        Int      @default(autoincrement()) @id
+  startDay  Int
+  endDay    Int
+  startTime String
+  endTime   String
+  isAllDay  Boolean @default(false)
+}

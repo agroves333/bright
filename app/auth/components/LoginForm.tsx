@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, useMutation } from "blitz"
+import { Flex } from "rebass"
 import { LabeledTextField } from "app/components/LabeledTextField"
 import { Form, FORM_ERROR } from "app/components/Form"
 import login from "app/auth/mutations/login"
@@ -13,9 +14,13 @@ export const LoginForm = (props: LoginFormProps) => {
   const [loginMutation] = useMutation(login)
 
   return (
-    <div>
+    <Flex
+      width={[1, 1 / 2, 1 / 3]}
+      alignItems="center"
+      justifyContent="center"
+      flexDirection="column"
+    >
       <h1>Login</h1>
-
       <Form
         submitText="Log In"
         schema={LoginInput}
@@ -39,11 +44,7 @@ export const LoginForm = (props: LoginFormProps) => {
         <LabeledTextField name="email" label="Email" placeholder="Email" />
         <LabeledTextField name="password" label="Password" placeholder="Password" type="password" />
       </Form>
-
-      <div style={{ marginTop: "1rem" }}>
-        Or <Link href="/signup">Sign Up</Link>
-      </div>
-    </div>
+    </Flex>
   )
 }
 
