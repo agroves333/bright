@@ -4,11 +4,11 @@
   "scripts": {
     "start": "blitz start",
     "studio": "blitz db studio",
-    "build": "blitz build",
+    "build": "blitz db migrate && blitz build",
     "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
     "test": "jest",
     "test:watch": "jest --watch",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "blitz db migrate && blitz build"
   },
   "browserslist": [
     "defaults"
