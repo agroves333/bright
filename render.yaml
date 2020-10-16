@@ -10,4 +10,6 @@ services:
       - key: NODE_ENV
         value: production
       - key: DATABASE_URL
-        value: file:./db.sqlite
+        fromDatabase:
+          name: bright-db
+          property: file:./db.sqlite
