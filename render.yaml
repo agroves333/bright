@@ -12,4 +12,4 @@ services:
       - key: DATABASE_URL
         fromDatabase:
           name: bright
-          property: file:./db.sqlite
+          property: postgres://bright_user:to0X5jP7vA951E0vKvn9XFMo3vPoyhbK@dpg-bu53a58ti7j10msb6oeg/bright
