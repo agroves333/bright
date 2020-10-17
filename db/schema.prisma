@@ -45,3 +45,4 @@ model Entry {
   endTime   String
   isAllDay  Boolean @default(false)
 }
+
