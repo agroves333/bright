@@ -42,14 +42,10 @@ export const EntryForm = (props: EntryFormProps) => {
               isAllDay: values?.isAllDay,
             })
           } catch (error) {
-            // if (error.name === "AuthenticationError") {
-            //   return { [FORM_ERROR]: "Sorry, those credentials are invalid" }
-            // } else {
-            //   return {
-            //     [FORM_ERROR]:
-            //       "Sorry, we had an unexpected error. Please try again. - " + error.toString(),
-            //   }
-            // }
+            return {
+              [FORM_ERROR]:
+                "Sorry, we had an unexpected error. Please try again. - " + error.toString(),
+            }
           }
         }}
       >

@@ -16,7 +16,7 @@ export const TimeSelector = React.forwardRef<HTMLInputElement, TimeSelectorProps
   ({ name, label, outerProps, ...props }, ref) => {
     const {
       input,
-      meta: { touched, error, submitError, submitting },
+      meta: { touched, error, submitError },
     } = useField(name)
 
     const normalizedError = Array.isArray(error) ? error.join(", ") : error || submitError
