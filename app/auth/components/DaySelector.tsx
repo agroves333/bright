@@ -68,6 +68,7 @@ export const DaySelector = React.forwardRef<HTMLInputElement, DaySelectorProps>(
                 bg={selected ? "primary" : "white"}
                 justifyContent="center"
                 alignItems="center"
+                flexShrink={0}
                 sx={{
                   border: `1px solid ${selected ? "transparent" : "#07c"}`,
                   cursor: "pointer",

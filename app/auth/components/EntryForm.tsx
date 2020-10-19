@@ -15,6 +15,7 @@ type EntryFormProps = {
 export const EntryForm = (props: EntryFormProps) => {
   const startDay = props?.data?.startDay
   const endDay = props?.data?.endDay
+  const isAllDay = props?.data?.isAllDay
 
   return (
     <Box {...props}>
@@ -30,7 +31,7 @@ export const EntryForm = (props: EntryFormProps) => {
             startTime: props?.data?.startTime || "00:00",
             endTime: props?.data?.endTime || "00:00",
           },
-          isAllDay: false,
+          isAllDay: isAllDay,
         }}
         inline={true}
         onSubmit={async (values) => {
@@ -53,7 +54,7 @@ export const EntryForm = (props: EntryFormProps) => {
         }}
       >
         <Flex>
-          <Box mr={3}>
+          <Box mr={3} flexShrink={0}>
             <DaySelector name="days" label="Days" />
           </Box>
           <Box mr={3}>

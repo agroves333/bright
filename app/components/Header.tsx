@@ -21,8 +21,11 @@ export const Header = (props) => {
         </Link>
       </Box>
       <Box mx="auto" />
+      <Link variant="nav" href="/Hours">
+        Hours
+      </Link>
       {currentUser && (
-        <Link variant="nav" href="/admin">
+        <Link variant="nav" href="/admin" ml={2}>
           Admin
         </Link>
       )}

@@ -106,7 +106,7 @@ const EntryRow = ({ entry, setEntries, entries, ...props }) => {
 const Entries = ({ entries, setEntries }) => {
   // @ts-ignore
   return (
-    <Flex flexDirection="column" width={[1, 1 / 2, 1 / 3]}>
+    <Flex flexDirection="column">
       {entries.map((entry: Entry) => {
         return <EntryRow key={entry.id} entry={entry} setEntries={setEntries} entries={entries} />
       })}
@@ -148,7 +148,7 @@ const Home: BlitzPage = () => {
         {isNewEntryFormVisible ? (
           <EntryForm onSuccess={handleCreateEntry} />
         ) : (
-          <Button bg="primary" onClick={handleNewEntryButtonClick}>
+          <Button bg="primary" mt={2} onClick={handleNewEntryButtonClick}>
             New Entry
           </Button>
         )}

@@ -1,16 +1,54 @@
-// import db from "./index"
+import db from "./index"
+import { hashPassword } from "../app/auth/auth-utils"
 
-/*
- * This seed function is executed when you run `blitz db seed`.
- *
- * Probably you want to use a library like https://chancejs.com
- * or https://github.com/Marak/Faker.js to easily generate
- * realistic data.
- */
 const seed = async () => {
-  // for (let i = 0; i < 5; i++) {
-  //   await db.project.create({ data: { name: "Project " + i } })
-  // }
+  try {
+    const users = await db.user.findMany()
+    if (!users.length) {
+      console.log("Creating Admin User")
+      const email = "admin@bright.md"
+      const hashedPassword = await hashPassword("Admin123!!!")
+      await db.user.create({
+        data: { email: email.toLowerCase(), hashedPassword, role: "user" },
+      })
+    }
+
+    const entries = await db.entry.findMany()
+
+    if (!entries.length) {
+      console.log("Creating Entries")
+      await db.entry.create({
+        data: {
+          startDay: 1,
+          endDay: 4,
+          startTime: "07:00",
+          endTime: "20:00",
+          isAllDay: false,
+        },
+      })
+
+      await db.entry.create({
+        data: {
+          startDay: 5,
+          endDay: 6,
+          startTime: "00:00",
+          endTime: "00:00",
+          isAllDay: true,
+        },
+      })
+
+      await db.entry.create({
+        data: {
+          startDay: 0,
+          endDay: 0,
+          startTime: "06:00",
+          endTime: "17:00",
+        },
+      })
+    }
+  } catch (err) {
+    console.error(err)
+  }
 }
 
 export default seed
