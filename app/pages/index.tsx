@@ -1,10 +1,8 @@
 import { Suspense } from "react"
-import { Link, BlitzPage, useQuery, useMutation } from "blitz"
+import { BlitzPage, useQuery } from "blitz"
 import moment from "moment"
 import { Box, Flex, Heading } from "rebass"
 import Layout from "app/layouts/Layout"
-import logout from "app/auth/mutations/logout"
-import { useCurrentUser } from "app/hooks/useCurrentUser"
 import getEntries from "app/queries/getEntries"
 
 import { Entry } from "app/types/entry"
